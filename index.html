@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Search App</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.2.0/mustache.min.js"></script>
+    <script src="js/script.js" defer></script>
+    <!-- Google Sign-In API -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body>
+<div class="container">
+    <h1>Book Search</h1>
+    <input type="text" id="search-input" placeholder="Search for books..." />
+    <button id="search-button">Search</button>
+
+    <!-- Toggle for Grid/List View -->
+    <div class="view-toggle">
+        <button id="grid-view" class="active">Grid View</button>
+        <button id="list-view">List View</button>
+    </div>
+
+    <!-- Search History -->
+    <div id="search-history">
+        <h2>Search History</h2>
+        <ul id="history-list"></ul>
+    </div>
+
+    <!-- Display search results -->
+    <div id="results" class="grid-view"></div>
+    <div id="pagination"></div>
+
+    <!-- Display detailed book information -->
+    <div id="book-details"></div>
+
+    <h2>My Bookshelf</h2>
+    <button id="show-bookshelf">Show Bookshelf</button>
+    <div id="bookshelf" class="overlay hidden">
+        <button id="close-bookshelf">Close</button>
+        <div id="bookshelf-content"></div>
+    </div>
+
+    <!-- Google Sign-In Button -->
+    <div id="g_id_onload"
+         data-client_id="694554000434-876f3798972osgv0mrs5u0ec8g5ga8ub.apps.googleusercontent.com"
+         data-callback="onSignIn">
+    </div>
+    <div class="g_id_signin" data-type="standard"></div>
+</div>
+</body>
+</html>
