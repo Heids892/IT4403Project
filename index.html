@@ -3,27 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Search App</title>
+    <title>Book Search</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.2.0/mustache.min.js"></script>
-    <script src="script.js" defer></script>
 </head>
 <body>
 <div class="container">
     <h1>Book Search</h1>
-    <label for="search-input">Search for books:</label>
-    <input type="text" id="search-input" placeholder="Search for books..." />
-
-    <button id="search-button">Search</button>
-
-    <div id="search-history">
-        <h2>Search History</h2>
-        <ul id="history-list"></ul>
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="Search for a book...">
+        <button id="search-button">Search</button>
     </div>
 
-    <div id="results" class="grid-view"></div>
+    <div class="view-toggle">
+        <button id="grid-view">Grid View</button>
+        <button id="list-view">List View</button>
+    </div>
+
+    <!-- Recent Searches Box -->
+    <div id="recent-searches">
+        <h3>Recent Searches</h3>
+        <ul id="recent-searches-list">
+            <!-- Recent searches will appear here -->
+        </ul>
+    </div>
+
+    <div id="results"></div>
     <div id="book-details" class="hidden"></div>
+    <div id="bookshelf" class="hidden">
+        <div id="bookshelf-content">
+            <button id="close-bookshelf">Close Bookshelf</button>
+            <div id="bookshelf-list"></div>
+        </div>
+    </div>
+    <ul id="history-list"></ul>
 </div>
+
+<!-- Load jQuery from a CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Your custom script -->
+<script src="script.js"></script>
 </body>
 </html>
