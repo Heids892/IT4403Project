@@ -1,43 +1,85 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: url('https://source.unsplash.com/random/1920x1080?nature,light') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    width: 80%;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 20px;
 }
 
 #search-input {
-    width: 300px;
-    padding: 10px;
-    margin-right: 10px;
+    width: 400px;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
 }
 
-#results {
+#search-input:focus {
+    border-color: #4285f4;
+    box-shadow: 0 0 8px rgba(66, 133, 244, 0.6);
+}
+
+#search-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #4285f4;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+#search-button:hover {
+    background-color: #357ae8;
+}
+
+.view-toggle {
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
     margin-top: 20px;
 }
 
-.grid-view .book {
-    width: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#grid-view,
+#list-view {
+    padding: 8px 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #f4f4f4;
+    transition: background-color 0.3s ease;
 }
 
-.list-view .book {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
+#grid-view.active,
+#list-view.active {
+    background-color: #4285f4;
+    color: white;
 }
 
-.book img {
-    max-width: 100%;
+#results {
+    margin-top: 40px;
+    width: 80%;
 }
 
 #pagination {
@@ -47,19 +89,47 @@ body {
 .page-link {
     margin: 0 5px;
     cursor: pointer;
-    color: blue;
+    color: #4285f4;
     text-decoration: underline;
 }
 
 #book-details {
     margin-top: 20px;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Overlay Styles for Bookshelf */
-.overlay {
+/* Search History Styles */
+#search-history {
+    margin-top: 30px;
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#search-history h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+#history-list {
+    list-style: none;
+    padding: 0;
+}
+
+.history-item {
+    cursor: pointer;
+    color: #4285f4;
+    text-decoration: underline;
+    margin-bottom: 5px;
+}
+
+/* Bookshelf Overlay */
+#bookshelf {
     position: fixed;
     top: 0;
     left: 0;
@@ -71,14 +141,27 @@ body {
     align-items: center;
 }
 
+#bookshelf-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-height: 80%;
+    overflow-y: auto;
+    width: 80%;
+}
+
 .hidden {
     display: none;
 }
 
-#bookshelf-content {
-    width: 80%;
-    background: #fff;
-    padding: 20px;
-    overflow-y: auto;
-    max-height: 80%;
+#close-bookshelf {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: #4285f4;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
